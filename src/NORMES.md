@@ -10,22 +10,26 @@ Tout fichier commence par :
     *
     * @Date : Datedecréation
     *
-    * @Version : V1.0 (A incrementer
+    * @Version : V1.0 (A incrementer)
     *
     * @Synopsis : ...
     **/
 
 Un bloc s'écrit :
+
     int main(){
-        //code
+    //code
     } //main()
+    
 ou
+
     int main()
     {
         //code
     } //main()
     
 Une utilisation intelligente des namepspace. (ex: TEA::crypt(), SHA::crypt()).
+
 Commenter le code un peu "rigolo" :-)
 # Classe
 
