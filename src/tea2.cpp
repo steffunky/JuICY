@@ -1,3 +1,4 @@
+
 /**
  * *
  * * @File : tea2.h
@@ -16,15 +17,15 @@ static unsigned Str4toLong(std::string line){
     unsigned res = 0;
     for (unsigned i = 0; i<4;++i)
         res |= line[i] << i*8;
-    return v;
+    return res;
 }
 static std::string LongtoStr4(unsigned line){
-    return (std::string)(v & 0xFF) +
-            (std::string)(v >> 8 & 0xFF) +
-            (std::string)(v >> 16 & 0xFF) +
-            (std::string)(v >> 24 & 0xFF);
+    return (std::string)(line & 0xFF) +
+            (std::string)(line >> 8 & 0xFF) +
+            (std::string)(line >> 16 & 0xFF) +
+            (std::string)(line >> 24 & 0xFF);
 }
-static std::string TEA::Code(unsigned[] v, unsigned[] k){
+static std::string TEA::Code(unsigned int v[], unsigned int k[]){
     unsigned v0 = v[0],v1 = v[1];
     unsigned sum = 0;
     unsigned k0 = k[0],k1 = k[1], k2 = k[2], k3 = k[3];
@@ -36,7 +37,7 @@ static std::string TEA::Code(unsigned[] v, unsigned[] k){
     return std::to_string(v0) + std::to_string(v1);
 
 }
-static std::string TEA::Decode(unsigned[] v, unsigned[] k){
+static std::string TEA::Decode(unsigned v[], unsigned k[]){
     unsigned v0 = v[0],v1 = v[1];
     unsigned sum = m_DELTA*32;
     unsigned k0 = k[0],k1 = k[1], k2 = k[2], k3 = k[3];
@@ -63,5 +64,7 @@ static std::string TEA::Encrypt(std::string value, std::string key){
 }
 static std::string TEA::Decrypt(std::string value, std::string key){
 //TODO: Decrypter
+    return "";
 }
-    
+
+
