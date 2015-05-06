@@ -1,3 +1,15 @@
+/**
+ * *
+ * * @File : tea2.h
+ * *
+ * * @Authors : Steffunky
+ * *
+ * * @Date : 06/04/2015
+ * *
+ * * @Version : V0.1
+ * *
+ * * @Synopsis : Definition méthodes de tea.h, classe de crypto
+ * **/
 #include "tea.h"
 #include <stdint.h>
 static unsigned Str4toLong(std::string line){

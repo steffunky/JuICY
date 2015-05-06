@@ -1,3 +1,15 @@
+/**
+ * *
+ * * @File : tea.h
+ * *
+ * * @Authors : Steffunky
+ * *
+ * * @Date : 06/04/2015
+ * *
+ * * @Version : V0.1
+ * *
+ * * @Synopsis : Header de classe avec des méthodes statiques pour crypter les fichiers
+ * **/
 #ifndef __TEA_H__
 #define __TEA_H__
 #include <string>
