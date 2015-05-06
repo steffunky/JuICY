@@ -13,7 +13,28 @@ static std::string LongtoStr4(unsigned line){
             (std::string)(v >> 24 & 0xFF);
 }
 static std::string TEA::Code(unsigned[] v, unsigned[] k){
-    //TODO:: ENCRYPT
+    unsigned v0 = v[0],v1 = v[1];
+    unsigned sum = 0;
+    unsigned k0 = k[0],k1 = k[1], k2 = k[2], k3 = k[3];
+    for(unsigned i=0;i < 32 ;++i){
+        sum += m_DELTA;
+        v0 += ((v1<<4) + k0) ^ (v1 + sum) ^ ((v1>>5) + k1);
+        v1 += ((v0<<4) + k2) ^ (v0 + sum) ^ ((v0>>5) + k3);
+    }
+    return std::to_string(v0) + std::to_string(v1);
+
+}
+static std::string TEA::Decode(unsigned[] v, unsigned[] k){
+    unsigned v0 = v[0],v1 = v[1];
+    unsigned sum = m_DELTA*32;
+    unsigned k0 = k[0],k1 = k[1], k2 = k[2], k3 = k[3];
+    for(unsigned i=0;i < 32 ;++i){
+        v1 -= ((v0<<4) + k2) ^ (v0 + sum) ^ ((v0>>5) + k3);
+        v0 -= ((v1<<4) + k0) ^ (v1 + sum) ^ ((v1>>5) + k1);
+        sum -= m_DELTA;
+    }
+    return std::to_string(v0) + std::to_string(v1);
+
 }
 static std::string TEA::Encrypt(std::string value, std::string key){
     std::vector<unsigned> tabvalues;
@@ -28,4 +49,7 @@ static std::string TEA::Encrypt(std::string value, std::string key){
     }
     return resultat;
 }
-        
+static std::string TEA::Decrypt(std::string value, std::string key){
+//TODO: Decrypter
+}
+    
