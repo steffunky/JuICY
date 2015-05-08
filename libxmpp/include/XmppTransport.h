@@ -12,19 +12,18 @@
 **/
 #ifndef XMPPTRANSPORT_H
 #define XMPPTRANSPORT_H
+#include <iostream>
 #include <boost/asio.hpp>
+#include "tinyxml2.h"
 class XmppTransport
 {
 public:
 	XmppTransport();
 	bool Connect(const char* host, const char* port);
-	std::string GetLog(); // just for debugging
 	~XmppTransport();
 private:
 	boost::asio::io_service m_ios;
-	boost::asio::ip::tcp::endpoint m_endpoint;
-	std::string m_log; //just for debugging
-	
+	boost::asio::ip::tcp::endpoint m_endpoint;	
 };
 
 #endif // XMPPTRANSPORT_H
